@@ -1,0 +1,15 @@
+<div class="container">
+  <div class="col-xs-5">
+  <button *ngIf="authservice.isauthenicated()" class="btn btn-primary" style="background: darkgreen" routerLink="new">New Recipe</button>
+</div>
+<div class="col-xs-4" *ngIf="saved">
+  <h4  style="color: green;">The Data Saved In Server<img src='http://weknowyourdreams.com/images/smile/smile-08.jpg'  style="width: 50px;height: 50px;margin-left: 20%"></h4>
+</div>
+  <hr>
+  <div class="col-xs-7">
+<app-recipelist></app-recipelist>
+  </div>
+  <div class="col-xs-5">
+    <router-outlet></router-outlet>
+  </div>
+</div>

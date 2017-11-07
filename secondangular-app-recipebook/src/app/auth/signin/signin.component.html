@@ -1,0 +1,16 @@
+<form (ngSubmit)='onsubmit(f)' #f="ngForm">
+    <div class="col-xs-12 col-sm-10 col-md-8">
+       
+    <div class="row">
+    <label for="Mail">Mail</label>
+    <input type="email" placeholder="Mail" class="form-control" name="mail" ngModel required email>
+    </div>
+    <div class="row">
+     <label for="password">password</label> 
+     <input type="text" placeholder="Password" class="form-control" name="password" ngModel required minlength="6">
+   
+    </div>
+    <hr>
+    <div class="row"><button class="btn btn-primary" type="submit" [disabled]="!f.valid">Signin</button></div>
+    </div>
+    </form>

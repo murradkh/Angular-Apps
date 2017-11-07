@@ -1,0 +1,16 @@
+<button class="btn btn-primary" [disabled]="turnon" (click)="addedbuttonclicked()">Add server</button>
+
+<!--<input class="form-control" type="text" (input)="changeservername($event)">-->
+<input [(ngModel)]="servername" class="form-control" type="text" >
+<ng-template #test>
+<p>
+  no server was Added
+</p>
+</ng-template>
+<p *ngIf="servercreated; else test">Server is created,server name:{{servername}}</p>
+
+<hr>
+
+<app-server *ngFor="let b of serversarray;let i=index">
+
+</app-server>

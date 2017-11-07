@@ -1,0 +1,10 @@
+<app-shoppeing-edit>
+</app-shoppeing-edit>
+<div class="list-group">
+    <div class="col-xs-10">
+        <a style="cursor: pointer;" class="list-group-item" (click)="changeclass(i)" *ngFor="let ingrediant of ingrediants;let i=index"
+            [ngClass]="{'active': i==currentclicked}">
+            <p class="list-group-item-text">{{i}}) {{ingrediant.name}} ({{ingrediant.num}})</p>
+        </a>
+    </div>
+</div>

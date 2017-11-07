@@ -1,0 +1,24 @@
+
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { Routes, RouterModule } from '@angular/router';
+import { SignupComponent } from './signup/signup.component';
+import { SigninComponent } from './signin/signin.component';
+
+const routes: Routes = [
+    
+        {path:'Signup',component:SignupComponent},
+        {path:'Signin',component:SigninComponent},
+    
+]
+@NgModule({
+    declarations: [],
+    imports: [RouterModule.forChild(routes)],
+    exports: [RouterModule],
+    providers: [],
+})
+
+export class authrouting {
+
+
+}

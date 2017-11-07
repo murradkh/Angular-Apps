@@ -1,0 +1,53 @@
+<div class="row">
+  <div class="col-xs-12">
+<form (ngSubmit)="onsubmit()" #f="ngForm">
+<div class="row">
+<div class="col-xs-12">
+  <button type="submit" class="btn btn-success" [disabled]='!f.valid' >Save</button>
+  <button type="button" class="btn btn-danger" [routerLink]="['../']">Cancel</button>
+</div>
+</div>
+<div class="row">
+  <div class="col-xs-12">
+    <label for="name">Name</label>
+    <input type="text" id="name" class="form-control" [ngModel]='recipeitem!=undefined ? recipeitem.name : ""' name="name" required>
+  </div>
+</div>
+<div class="row">
+    <div class="col-xs-12">
+      <label for="imageurl">Image URL</label>
+      <input type="text" id="imageurl" class="form-control" name="image" [ngModel]='recipeitem!=undefined ? recipeitem.imagepath: ""' required #imageurl>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12">
+      <img [src]="imageurl.value" class="img-responsive">
+    </div>
+  </div>
+  <div class="row">
+      <div class="col-xs-12">
+        <label for="Description">Description</label>
+        <textarea type="text" id="Description" class="form-control" rows="6" [ngModel]="recipeitem!=undefined ? recipeitem.details : ''" name="description" required></textarea>
+      </div>
+    </div>
+    <div class="row">
+          <label for="Ingrediants" class="col-xs-12">Ingrediants:</label>
+        </div>
+        <div ngModelGroup="ingrediants">
+        <div class="row" *ngFor="let ingrediant of ingrediants;let i=index" [ngModelGroup]="'ingrediant '+i">            
+          <div class="col-xs-7"> 
+          <input type="text" class="form-control"  [(ngModel)]="ingrediant.name" name="name" required>
+        </div>
+        <div class="col-xs-3">
+          <input class="form-control" type="number" [(ngModel)]="ingrediant.num" name="num" required pattern="[1-9]+[0-9]*">
+        </div>
+        <div class="col-xs-2">
+          <button class="btn btn-danger" type="button" (click)="deleteingrediant(i)">X</button>
+        </div>
+      </div>
+      <hr>
+      <button class="btn btn-success" type="button" (click)="addingrediant()">Add ingrediant</button>
+    </div>
+        </form>
+  </div>
+</div>

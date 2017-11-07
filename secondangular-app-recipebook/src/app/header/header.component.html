@@ -1,0 +1,30 @@
+ 
+ <div class="navbar navbar-default">
+   <div class="col-xs-8">
+<a style="cursor:pointer;" class="navbar-brand " routerLink="/Home">Recipe Book</a>
+  <ul class="nav navbar-nav">
+  <li routerLinkActive="active"><a [routerLink]="['recipebook']" >Recipes</a></li>
+    <li routerLinkActive="active"><a [routerLink]="['shoppinglist']" >Shopping List</a></li>
+  </ul>
+   </div>
+   <div class="col-xs-4">
+<ul class="nav navbar-nav navbar-right">
+  <ng-template [ngIf] ="!isauthenicated()">
+  <li style="cursor: pointer;"  [routerLink]='["/Signup"]'><a>Register</a></li>
+  <li style="cursor: pointer;"  [routerLink]='["Signin"]'><a>Login</a></li>
+  </ng-template>
+  <ng-template [ngIf]='isauthenicated()'>
+  <li  style="cursor: pointer;" (click)="onlogout()" ><a>LogOut</a></li>
+  <li   class="btn-group" [ngClass]="{'btn-group open': newclass}"><a style="cursor:pointer;" class="dropdown-toggle" (click)="newclass=!newclass;">Manage<span class="caret"></span>
+ </a>
+ <ul class="dropdown-menu">
+   <li><a style="cursor:pointer;" (click)="onsave()">Save Data</a></li>
+     <li><a style="cursor:pointer;" (click)="onfetch()">Fetch Data</a></li>
+ </ul>
+ </li>
+</ng-template>
+</ul>
+ </div>
+ </div>
+<hr>
+

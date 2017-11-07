@@ -1,0 +1,18 @@
+<form (ngSubmit)='onsubmit(f)' #f="ngForm">
+<div class="col-xs-12 col-sm-10 col-md-8">
+    <span class="center" style="color:red;">{{code}}</span>
+<div class="row">
+<label for="Mail">Mail</label>
+<input type="email" placeholder="Mail" class="form-control" name="mail" ngModel required email>
+</div>
+<div class="row">
+ <label for="password">password</label> 
+ <input type="password" placeholder="Password" class="form-control" name="password" ngModel required minlength="6">
+ <small id="passwordHelpInline" class="text-muted">
+        Must be at least 6 characters long.
+      </small>
+</div>
+<hr>
+<div class="row"><button class="btn btn-primary" type="submit" [disabled]="!f.valid">Signup</button></div>
+</div>
+</form>

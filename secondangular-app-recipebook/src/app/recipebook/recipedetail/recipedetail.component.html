@@ -1,0 +1,39 @@
+<div *ngIf="recipeitem != null">
+<div class="row">
+<div class="col-xs-12">
+<img [src]="recipeitem.imagepath" class="img-responsive" style="max-height:350px;">
+</div>
+</div>
+<div class="row">
+<div class="col-xs-12">
+<h1>{{recipeitem.name}}</h1>
+</div>
+</div>
+
+<div class="row">
+<div class="col-xs-12 btn-group" [ngClass]="{'btn-group open': open}">
+
+<button class="btn btn-primary dropdown-toggle" (click)="open=!open;" >Manage Recipe<span 
+  class="caret"></span>
+  </button>
+  <ul class="dropdown-menu">
+    
+<li><a style="cursor:pointer;" (click)="sendtoshoppinglist()" >To shopping List</a></li>
+<li *ngIf="authservice.isauthenicated()"><a style="cursor:pointer;" (click)="open=false;" [routerLink]="['edit']" >Edit Recipe</a></li>
+<li><a style="cursor:pointer;" (click)="open=false;" (click)="deleterecipe()">Delete Recipe</a></li>
+
+  </ul>
+
+</div>
+</div>
+<div class="col-xs-12" >
+{{recipeitem.details}}
+</div>
+<div class="col-xs-12" >
+  <div class="list-group">
+    <div class="list-group-item" *ngFor="let item of recipeitem.ingrediants;let i=index">
+{{item.name}} - {{item.num}}
+    </div>
+  </div>
+</div>
+</div>
